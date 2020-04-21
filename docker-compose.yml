@@ -1,0 +1,16 @@
+version: "3"
+services:
+  app:
+    container_name: beowulf-next
+    image: node:latest
+    working_dir: /usr/src/app
+    tty: true # keep container alive without default command
+    ports:
+      - "7777:7777"
+    volumes: ["./:/usr/src/app", "node_modules:/usr/src/app/node_modules"]
+volumes:
+  node_modules:
+networks:
+  default:
+    external:
+      name: beowulf-backend_beowulf

@@ -1,0 +1,14 @@
+/node_modules/
+
+.env
+
+/.next/
+
+/deploy/
+
+/storybook/
+
+*.sh
+
+*.gz
+
