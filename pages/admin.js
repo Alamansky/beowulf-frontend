@@ -6,18 +6,12 @@ import User from "../components/User";
 import SignOut from "../components/SignOut";
 import { theme } from "../components/Page";
 import styled from "styled-components";
+import Blurb from "../components/styles/Blurb";
 
 const Columns = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
-`;
-
-const Blurb = styled.div`
-  text-align: center;
-  padding: 2rem;
-  margin: 2rem 0;
-  border: 2px solid ${theme.lightgrey};
 `;
 
 const adminPage = (props) => (
