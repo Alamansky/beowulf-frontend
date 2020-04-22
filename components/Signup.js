@@ -72,10 +72,14 @@ export default class Signup extends Component {
                   title={"password"}
                   type={"password"}
                 />
-                <SickButton type="Submit" backgroundColor={theme.red}>
-                  Create Account
-                </SickButton>
               </fieldset>
+              <SickButton
+                type="Submit"
+                backgroundColor={theme.red}
+                className="button--bottom"
+              >
+                Create Account
+              </SickButton>
             </Form>
           );
         }}

@@ -62,13 +62,17 @@ export default class RequestReset extends Component {
                 </label> */}
                 <TextInput
                   liftState={this.liftState}
-                  required={true}
                   title={"email"}
+                  value={this.state.email}
                 />
-                <SickButton type="Submit" backgroundColor={theme.red}>
-                  Request Reset
-                </SickButton>
               </fieldset>
+              <SickButton
+                type="Submit"
+                backgroundColor={theme.red}
+                className="button--bottom"
+              >
+                Request Reset
+              </SickButton>
             </Form>
           );
         }}

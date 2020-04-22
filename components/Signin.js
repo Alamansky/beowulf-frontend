@@ -20,7 +20,6 @@ const SIGNIN_MUTATION = gql`
 
 export default class Signin extends Component {
   state = {
-    name: "",
     email: "",
     password: "",
   };
@@ -54,19 +53,23 @@ export default class Signin extends Component {
                 <Error error={error} />
                 <TextInput
                   liftState={this.liftState}
-                  required={true}
                   title={"email"}
+                  value={this.state.email}
                 />
                 <TextInput
                   liftState={this.liftState}
-                  required={true}
                   title={"password"}
+                  value={this.state.password}
                   type={"password"}
                 />
-                <SickButton type="Submit" backgroundColor={theme.red}>
-                  Sign in
-                </SickButton>
               </fieldset>
+              <SickButton
+                type="Submit"
+                backgroundColor={theme.red}
+                className="button--bottom"
+              >
+                Sign in
+              </SickButton>
             </Form>
           );
         }}

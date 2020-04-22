@@ -18,7 +18,7 @@ const Form = styled.form`
   background: rgba(255, 255, 255, 1);
   /*border: 5px solid white;*/
   padding: 20px;
-  padding-bottom: 8rem;
+  /* padding-bottom: 8rem; */
   font-size: 1.5rem;
   line-height: 1.5;
   font-weight: 600;
@@ -49,6 +49,7 @@ const Form = styled.form`
     padding: 0.5rem 1.2rem;
   }
   fieldset {
+    min-height: 90%;
     border: 0;
     padding: 0;
 
@@ -72,9 +73,9 @@ const Form = styled.form`
     }
   }
 
-  fieldset button {
-    position: absolute;
-    bottom: 2rem;
+  .button--bottom {
+    /*     position: relative;
+    bottom: 2rem; */
   }
 `;
 
