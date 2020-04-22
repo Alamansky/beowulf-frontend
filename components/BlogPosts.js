@@ -24,6 +24,7 @@ const BlogPosts = () => {
   return (
     <Query query={BLOGPOSTS}>
       {({ error, data: { blogPosts } = {} } = {}) => {
+        let hasBlogPosts = blogPosts && blogPosts.length > 0;
         if (error) return <NetworkError error={error} />;
         return (
           <React.Fragment>
@@ -33,7 +34,7 @@ const BlogPosts = () => {
                 ["Blog Posts", "/blog"],
               ]}
             ></Breadcrumbs>
-            {blogPosts &&
+            {hasBlogPosts &&
               blogPosts.map((post) => <BlogPost post={post} key={post.id} />)}
           </React.Fragment>
         );

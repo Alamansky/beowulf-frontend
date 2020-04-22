@@ -27,8 +27,8 @@ export default class LatestBlogPost extends Component {
     return (
       <Query query={LATEST_POST}>
         {({ data, error }) => {
-          let hasBlogPosts = data && data.blogPosts;
-
+          let hasBlogPosts =
+            data && data.blogPosts && data.blogPosts.length > 0;
           return (
             <Section backgroundColor="rgba(255, 255, 255, 0.8)">
               <Inner>

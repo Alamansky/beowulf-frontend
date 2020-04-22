@@ -46,6 +46,7 @@ class FeaturedItems extends Component {
               {({ data, error, loading }) => {
                 if (loading) return <p>Loading...</p>;
                 if (error) return <p>Unable to load content.</p>;
+                if (!data.items) return null;
                 return (
                   <React.Fragment>
                     <ItemsList>
