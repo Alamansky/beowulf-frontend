@@ -47,13 +47,13 @@ const Inner = styled.div`
 `;
 
 const GlobalStyle = createGlobalStyle`
-@font-face {
+/* @font-face {
     font-family: 'Lora';
     src: url('/static/Lora-Regular.ttf')
     format('woff2');
     font-weight: normal;
     font-style: normal;
-}
+} */
     html {
         box-sizing: border-box;
         font-size: 10px;
