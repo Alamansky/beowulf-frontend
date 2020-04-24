@@ -7,6 +7,7 @@ import SignOut from "../components/SignOut";
 import { theme } from "../components/Page";
 import styled from "styled-components";
 import Blurb from "../components/styles/Blurb";
+import Breadcrumbs from "../components/Breadcrumbs";
 
 const Columns = styled.div`
   display: grid;
@@ -19,6 +20,12 @@ const adminPage = (props) => (
     {({ data: { me } = {} } = {}) => {
       return (
         <React.Fragment>
+          <Breadcrumbs
+            chain={[
+              ["Beowulf", "/"],
+              ["Admin", "/admin"],
+            ]}
+          ></Breadcrumbs>
           {me && me.permissions && me.permissions.includes("ADMIN") && (
             <Blurb>
               <p>

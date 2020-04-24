@@ -23,7 +23,7 @@ const Logo = styled.h1`
   position: relative;
   z-index: 2;
 
-  @media (max-width: 768px) {
+  @media (max-width: 700px) {
     font-size: 2rem;
   }
 

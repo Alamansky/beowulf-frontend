@@ -23,16 +23,6 @@ const CURRENT_USER_QUERY = gql`
   }
 `;
 
-/* const User = (props) => (
-  <Query {...props} query={CURRENT_USER_QUERY} pollInterval={1500}>
-    {(payload) => {
-      let stopPolling = payload.stopPolling;
-      console.log(stopPolling);
-      return props.children(payload);
-    }}
-  </Query>
-); */
-
 class User extends Component {
   state = {
     _window: false,
@@ -44,21 +34,19 @@ class User extends Component {
 
   killPoll = (stopPolling) => {
     stopPolling();
-    console.log("got em");
   };
 
   setTimer = (stopPolling) => {
     if (this.state._window) {
-      window.setTimeout(() => this.killPoll(stopPolling), 2500);
+      window.setTimeout(() => this.killPoll(stopPolling), 250);
     }
   };
   render() {
     return (
-      <Query {...this.props} query={CURRENT_USER_QUERY} pollInterval={1000}>
+      <Query {...this.props} query={CURRENT_USER_QUERY} pollInterval={100}>
         {(payload) => {
           let stopPolling = payload.stopPolling;
           this.state._window && this.setTimer(stopPolling);
-          console.log(stopPolling);
           return this.props.children(payload);
         }}
       </Query>

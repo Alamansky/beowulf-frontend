@@ -27,7 +27,6 @@ export default class AddToCart extends Component {
 
   addItemToCart = async (addToCart) => {
     const res = await addToCart();
-    //window && window.scrollTo(0, 0);
   };
 
   render() {

@@ -8,6 +8,7 @@ import formatMoney from "../lib/formatMoney";
 import styled from "styled-components";
 import Table from "./styles/Table";
 import OrderFulfillmentCheck from "./OrderFulfillmentCheck";
+import Breadcrumbs from "./Breadcrumbs";
 
 const ORDERS_QUERY = gql`
   query ORDERS_QUERY {
@@ -37,6 +38,18 @@ const OrderUL = styled.ul`
   grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
 `;
 
+const Spacer = styled.div`
+  padding: 2rem;
+  margin-top: 175px;
+
+  @media (max-width: 768px) {
+    margin-top: 110px;
+  }
+  @media (max-width: 700px) {
+    margin-top: 50px;
+  }
+`;
+
 export default class Orders extends Component {
   state = {
     unfilledOrders: 0,
@@ -48,7 +61,13 @@ export default class Orders extends Component {
           if (error) return <Error error={error} />;
           if (loading) return <span>Loading...</span>;
           return (
-            <div style={{ padding: "4rem", marginTop: "204px" }}>
+            <Spacer>
+              <Breadcrumbs
+                chain={[
+                  ["Beowulf", "/"],
+                  ["Orders", "/orders"],
+                ]}
+              ></Breadcrumbs>
               <p>
                 {`You have ${
                   orders.filter((order) => !order.fulfilled).length
@@ -101,7 +120,7 @@ export default class Orders extends Component {
                   ))}
                 </tbody>
               </Table>
-            </div>
+            </Spacer>
           );
         }}
       </Query>

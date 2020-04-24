@@ -36,13 +36,13 @@ const Inner = styled.div`
   max-width: ${(props) => props.theme.maxWidth};
   margin: 0 auto;
   padding: 2rem;
-  margin-top: 207px;
+  margin-top: 175px;
 
   @media (max-width: 768px) {
-    margin-top: 111px;
+    margin-top: 110px;
   }
   @media (max-width: 700px) {
-    margin-top: 91px;
+    margin-top: 50px;
   }
 `;
 
@@ -57,7 +57,7 @@ const GlobalStyle = createGlobalStyle`
     html {
         box-sizing: border-box;
         font-size: 10px;
-        scroll-behavior: smooth;
+        /* scroll-behavior: smooth; */
     }
     *, *:before, *:after {
         box-sizing: inherit;
