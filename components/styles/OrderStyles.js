@@ -8,6 +8,8 @@ const OrderStyles = styled.div`
   padding: 2rem;
   border-top: 10px solid ${(props) => props.theme.green};
   & > p {
+    /* display: flex;
+    justify-content: space-between; */
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 0;
@@ -16,7 +18,7 @@ const OrderStyles = styled.div`
       padding: 1rem;
       &:first-child {
         font-weight: 900;
-        text-align: right;
+        /* text-align: right; */
         justify-self: left;
       }
       &:nth-child(2) {
@@ -32,10 +34,15 @@ const OrderStyles = styled.div`
     grid-gap: 2rem;
     margin: 2rem 0;
     padding-bottom: 2rem;
+    @media (max-width: 700px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
     img {
+      min-width: 150px;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      /* height: 100%;
+      object-fit: cover; */
     }
   }
 `;
