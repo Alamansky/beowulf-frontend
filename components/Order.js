@@ -10,10 +10,10 @@ import OrderStyles from "./styles/OrderStyles";
 import OuterBorder from "./styles/OuterBorder";
 import OrderCopy from "./copy/OrderCopy";
 import SickButton from "./styles/SickButton";
-import Link from "next/link";
 import Center from "./styles/Center";
 import FeaturedImageDynamic from "./FeaturedImageDynamic";
 import Breadcrumbs from "./Breadcrumbs";
+import Link from "next/link";
 
 const SINGLE_ORDER_QUERY = gql`
   query SINGLE_ORDER_QUERY($id: ID!) {

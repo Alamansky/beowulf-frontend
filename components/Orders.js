@@ -9,6 +9,7 @@ import styled from "styled-components";
 import Table from "./styles/Table";
 import OrderFulfillmentCheck from "./OrderFulfillmentCheck";
 import Breadcrumbs from "./Breadcrumbs";
+import Spacer from "./styles/Spacer";
 
 const ORDERS_QUERY = gql`
   query ORDERS_QUERY {
@@ -36,18 +37,6 @@ const OrderUL = styled.ul`
   display: grid;
   grid-gap: 4rem;
   grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
-`;
-
-const Spacer = styled.div`
-  padding: 2rem;
-  margin-top: 175px;
-
-  @media (max-width: 768px) {
-    margin-top: 110px;
-  }
-  @media (max-width: 700px) {
-    margin-top: 50px;
-  }
 `;
 
 export default class Orders extends Component {

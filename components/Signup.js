@@ -60,17 +60,20 @@ export default class Signup extends Component {
                   liftState={this.liftState}
                   required={true}
                   title={"email"}
+                  value={this.state.email}
                 />
                 <TextInput
                   liftState={this.liftState}
                   required={true}
                   title={"name"}
+                  value={this.state.name}
                 />
                 <TextInput
                   liftState={this.liftState}
                   required={true}
                   title={"password"}
                   type={"password"}
+                  value={this.state.password}
                 />
               </fieldset>
               <SickButton
