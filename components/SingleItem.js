@@ -16,6 +16,7 @@ import AdminView from "./AdminView";
 import UpdateItem from "./UpdateItem";
 import SingleAccordion from "./SingleAccordion";
 import Breadcrumbs from "./Breadcrumbs";
+import WhiteSpace from "./styles/WhiteSpace";
 
 const SingleItemStyles = styled.div`
   max-width: 1200px;
@@ -37,12 +38,15 @@ const SingleItemStyles = styled.div`
     padding: 2rem;
   }
   .details {
-    display: grid;
-    grid-template-rows: 1fr 2fr 1fr;
+    /* display: grid;
+    grid-template-rows: 1fr 2fr 1fr; */
     margin: 3rem;
     padding: 3rem;
     font-size: 2rem;
     border-left: 2px solid ${({ theme }) => changeAlpha(theme.lightgrey, 0.5)};
+    > * {
+      margin-bottom: 8rem;
+    }
   }
 `;
 
@@ -99,7 +103,7 @@ export default class SingleItem extends Component {
                 />
                 <div className="details">
                   <h2>{title}</h2>
-                  <p>{description}</p>
+                  <WhiteSpace>{description}</WhiteSpace>
                   <Center>
                     <PriceTag>{formatMoney(price)}</PriceTag>
                   </Center>
