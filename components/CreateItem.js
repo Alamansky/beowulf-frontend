@@ -15,6 +15,7 @@ import env from "../env.json";
 import UploadToCloudinary from "./UploadToCloudinary";
 import TextInput from "./TextInput";
 import TextAreaInput from "./TextAreaInput";
+import { ALL_ITEMS_QUERY } from "./Items";
 
 const CREATE_ITEM_MUTATION = gql`
   mutation CREATE_ITEM_MUTATION(
@@ -58,7 +59,11 @@ class createItem extends Component {
   render() {
     return (
       <AdminView>
-        <Mutation mutation={CREATE_ITEM_MUTATION} variables={this.state}>
+        <Mutation
+          mutation={CREATE_ITEM_MUTATION}
+          variables={this.state}
+          refetchQueries={[{ query: ALL_ITEMS_QUERY }]}
+        >
           {(createItem, { loading, error }) => (
             <SingleAccordian buttonText={["+ New Item", "Close"]}>
               <Form
