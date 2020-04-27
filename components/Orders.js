@@ -73,7 +73,7 @@ export default class Orders extends Component {
                   orders.filter((order) => !order.fulfilled).length
                 } unfulfilled order(s)`}
               </p>
-              <Table>
+              <Table style={{ textAlign: "center" }}>
                 <thead>
                   <tr>
                     <th>Fulfilled</th>
