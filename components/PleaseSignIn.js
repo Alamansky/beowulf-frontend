@@ -1,17 +1,18 @@
 import { Query } from "react-apollo";
 import { CURRENT_USER_QUERY } from "./User";
 import Signin from "./Signin";
+import Spacer from "./styles/Spacer";
 
-const PleaseSignIn = props => (
+const PleaseSignIn = (props) => (
   <Query query={CURRENT_USER_QUERY}>
     {({ data, loading }) => {
       if (loading) return <p>Loading...</p>;
       if (!data.me) {
         return (
-          <div>
+          <Spacer>
             <p>Please sign in before Continuing</p>
             <Signin />
-          </div>
+          </Spacer>
         );
       }
       return props.children;

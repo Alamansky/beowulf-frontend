@@ -27,6 +27,7 @@ const OrderStyles = styled.div`
     }
   }
   .order-item {
+    /* cursor: pointer; */
     border-bottom: 1px solid ${(props) => props.theme.offWhite};
     display: grid;
     grid-template-columns: 300px 1fr;
