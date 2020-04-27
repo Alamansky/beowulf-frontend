@@ -16,7 +16,7 @@ const FeaturedItemsSection = styled.section`
   background: ${(props) => props.theme.offWhite};
   width: 100vw;
   .product-button {
-    margin: 10rem;
+    margin: 10rem 0;
   }
 `;
 

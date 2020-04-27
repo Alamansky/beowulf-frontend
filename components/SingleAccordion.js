@@ -12,6 +12,7 @@ const AccordianBox = styled.div`
     pod(props.backgroundColor, props.theme.lightgrey, "!important")};
   position: relative;
   overflow: hidden;
+  margin: 4rem 0;
 `;
 
 export default class SingleAccordion extends Component {

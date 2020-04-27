@@ -71,12 +71,20 @@ export default class BlogPost extends Component {
                 key={post.id}
               >
                 <Post className="post">
-                  <FeaturedImageDynamic
-                    imageUrl={post.image}
-                    sizes="(max-width: 500px) 100vw, 200px"
-                    alt={post.title}
-                    className="post__thumbnail"
-                  />
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      alignContent: "center",
+                    }}
+                  >
+                    <FeaturedImageDynamic
+                      imageUrl={post.image}
+                      sizes="(max-width: 500px) 100vw, 200px"
+                      alt={post.title}
+                      className="post__thumbnail"
+                    />
+                  </div>
                   <div>
                     <h3>{post.title}</h3>
                     <WhiteSpace>{post.excerpt}</WhiteSpace>

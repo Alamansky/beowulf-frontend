@@ -6,7 +6,7 @@ import Features from "../components/Features";
 import Contact from "../components/Contact";
 import ContactForm from "../components/ContactForm";
 
-const Index = props => (
+const Index = (props) => (
   <React.Fragment>
     <Hero />
     <FeaturedItems />
