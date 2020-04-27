@@ -85,7 +85,7 @@ class updatePost extends Component {
                       defaultValue={data.blogPost.post}
                     />
                     <FormFooter>
-                      <span>
+                      <span className="FormFooter__Buttons">
                         <SickButton backgroundColor={theme.red} type="submit">
                           Sav{loading ? "ing" : "e"} Changes
                         </SickButton>

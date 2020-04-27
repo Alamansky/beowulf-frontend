@@ -7,8 +7,9 @@ import gql from "graphql-tag";
 import RemoveFromCart from "./RemoveFromCart";
 
 const CartItemStyles = styled.li`
+  white-space: pre-wrap;
   padding: 1rem 0;
-  border-bottom: 1px solid ${props => props.theme.lightgrey};
+  border-bottom: 1px solid ${(props) => props.theme.lightgrey};
   display: grid;
   align-items: center;
   grid-template-columns: auto 1fr auto;
@@ -37,11 +38,9 @@ const CartItem = ({ cartItem }) => {
         <h3>{cartItem.item.title}</h3>
         <p>
           {`${formatMoney(cartItem.item.price * cartItem.quantity)}`}
-          {" - "}
+          {"  -  "}
           {`QTY: ${cartItem.quantity}`}
-          <em>
-            {` (${formatMoney(cartItem.item.price)}/each)`}
-          </em>
+          <em>{` (${formatMoney(cartItem.item.price)}/each)`}</em>
         </p>
       </div>
       <RemoveFromCart id={cartItem.id} />
@@ -50,7 +49,7 @@ const CartItem = ({ cartItem }) => {
 };
 
 CartItem.propTypes = {
-  cartItem: PropTypes.object.isRequired
+  cartItem: PropTypes.object.isRequired,
 };
 
 export default CartItem;

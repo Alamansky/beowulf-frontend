@@ -12,6 +12,8 @@ import OrderCopy from "./copy/OrderCopy";
 import SickButton from "./styles/SickButton";
 import Link from "next/link";
 import Center from "./styles/Center";
+import FeaturedImageDynamic from "./FeaturedImageDynamic";
+import Breadcrumbs from "./Breadcrumbs";
 
 const SINGLE_ORDER_QUERY = gql`
   query SINGLE_ORDER_QUERY($id: ID!) {
@@ -56,6 +58,12 @@ class Order extends React.Component {
           const order = data.order;
           return (
             <React.Fragment>
+              <Breadcrumbs
+                chain={[
+                  ["Beowulf", "/"],
+                  [`Order ${order.id}`, `/order?id=${order.id}`],
+                ]}
+              ></Breadcrumbs>
               <OuterBorder style={{ marginBottom: "2rem" }}>
                 <OrderCopy order={order} />
               </OuterBorder>
@@ -91,7 +99,11 @@ class Order extends React.Component {
                   <p>Item(s) in This Order:</p>
                   {order.items.map((item) => (
                     <div className="order-item" key={item.id}>
-                      <img src={item.image} alt={item.title} />
+                      <FeaturedImageDynamic
+                        imageUrl={item.image}
+                        alt={item.title}
+                        sizes="33vw"
+                      />
                       <div className="item-details">
                         <h2>{item.title}</h2>
                         <p>Qty: {item.quantity}</p>
