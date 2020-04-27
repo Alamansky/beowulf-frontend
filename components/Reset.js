@@ -9,6 +9,7 @@ import TextInput from "./TextInput";
 import SickButton from "./styles/SickButton";
 import { theme } from "./Page";
 import Blurb from "./styles/Blurb";
+import Breadcrumbs from "./Breadcrumbs";
 
 const RESET_MUTATION = gql`
   mutation RESET_MUTATION(
@@ -65,6 +66,15 @@ export default class Reset extends Component {
         {(reset, { loading, error, called }) => {
           return (
             <React.Fragment>
+              <Breadcrumbs
+                chain={[
+                  ["Beowulf", "/"],
+                  [
+                    "Reset Password",
+                    `/reset?resetToken=${this.props.resetToken}`,
+                  ],
+                ]}
+              ></Breadcrumbs>
               {!error && called && <Blurb>Your password has been reset.</Blurb>}
               <Form
                 method="post"
