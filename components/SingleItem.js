@@ -47,6 +47,10 @@ const SingleItemStyles = styled.div`
     > * {
       margin-bottom: 8rem;
     }
+
+    @media (max-width: 768px) {
+      margin: 0rem;
+    }
   }
 `;
 

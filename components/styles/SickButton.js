@@ -13,7 +13,7 @@ const SickButton = styled.button`
   text-transform: uppercase;
   /* font-size: 2.5rem; */
   padding: 0.8rem 1.5rem;
-  margin-right: 1rem;
+  /* margin-right: 1rem; */
   display: inline-block;
   transition: all 0.2s;
 
