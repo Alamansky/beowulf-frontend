@@ -13,6 +13,9 @@ const AccordianBox = styled.div`
   position: relative;
   overflow: hidden;
   margin: 4rem 0;
+  @media (max-width: 768px) {
+    margin: 4rem 0 2rem 0;
+  }
 `;
 
 export default class SingleAccordion extends Component {

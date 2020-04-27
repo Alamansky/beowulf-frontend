@@ -103,7 +103,7 @@ class updateItem extends Component {
                       defaultValue={data.item.description}
                     />
                     <FormFooter>
-                      <span>
+                      <span className="FormFooter__Buttons">
                         <SickButton backgroundColor={theme.red} type="submit">
                           Sav{loading ? "ing" : "e"} Changes
                         </SickButton>
