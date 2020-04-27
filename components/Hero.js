@@ -29,6 +29,51 @@ const HeroImage = styled.div`
   background-image: ${(props) => `url(${props.image}), ${props.gradient}`};
   background-repeat: no-repeat;
   background-size: cover;
+
+  @media (max-width: 2000px) {
+    background-image: ${(props) =>
+      `url(${addUrlParam({
+        url: props.image,
+        replace: "upload",
+        replaceWith: `upload/c_scale,w_2000`,
+      })}), ${props.gradient}`};
+  }
+
+  @media (max-width: 1500px) {
+    background-image: ${(props) =>
+      `url(${addUrlParam({
+        url: props.image,
+        replace: "upload",
+        replaceWith: `upload/c_scale,w_1500`,
+      })}), ${props.gradient}`};
+  }
+
+  @media (max-width: 1350px) {
+    background-image: ${(props) =>
+      `url(${addUrlParam({
+        url: props.image,
+        replace: "upload",
+        replaceWith: `upload/c_scale,w_1350`,
+      })}), ${props.gradient}`};
+  }
+
+  @media (max-width: 1000px) {
+    background-image: ${(props) =>
+      `url(${addUrlParam({
+        url: props.image,
+        replace: "upload",
+        replaceWith: `upload/c_scale,w_1000`,
+      })}), ${props.gradient}`};
+  }
+
+  @media (max-width: 850px) {
+    background-image: ${(props) =>
+      `url(${addUrlParam({
+        url: props.image,
+        replace: "upload",
+        replaceWith: `upload/c_scale,w_850`,
+      })}), ${props.gradient}`};
+  }
 `;
 
 const HeroText = styled.h1`
@@ -74,13 +119,7 @@ export default class Hero extends Component {
     )`;
     return (
       <HeroSpacer>
-        <HeroImage
-          image={getCSSBackgroundImage({
-            url: env.heroImage,
-            screenWidth: this.state.width,
-          })}
-          gradient={gradient}
-        >
+        <HeroImage image={env.heroImage} gradient={gradient}>
           <Center>
             <HeroText
               id="hero-text"
