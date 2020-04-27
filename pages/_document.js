@@ -1,4 +1,4 @@
-import Document from "next/document";
+import Document, { Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
@@ -9,7 +9,8 @@ export default class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />),
         });
 
       const initialProps = await Document.getInitialProps(ctx);
@@ -20,10 +21,28 @@ export default class MyDocument extends Document {
             {initialProps.styles}
             {sheet.getStyleElement()}
           </>
-        )
+        ),
       };
     } finally {
       sheet.seal();
     }
+  }
+  render() {
+    return (
+      <html>
+        <Head>
+          <link
+            href="https://fonts.googleapis.com/css?family=Lora&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+          {/* Empty script tag as chrome bug fix, see https://stackoverflow.com/a/42969608/943337 */}
+          <script> </script>
+        </body>
+      </html>
+    );
   }
 }

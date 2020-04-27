@@ -6,6 +6,7 @@ import Link from "next/link";
 import InnerBorder from "./styles/InnerBorder";
 import SectionTitle from "./styles/SectionTitle";
 import changeAlpha from "../lib/changeAlpha";
+import FeaturedImageDynamic from "./FeaturedImageDynamic";
 
 const SuggestedItemsBar = styled.div`
   display: flex;
@@ -13,6 +14,11 @@ const SuggestedItemsBar = styled.div`
   justify-content: space-around;
   padding: 2rem;
   border: 2px solid ${({ theme }) => changeAlpha(theme.lightgrey, 0.5)};
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const SuggestedItem = styled.div`
@@ -21,8 +27,12 @@ const SuggestedItem = styled.div`
   cursor: pointer;
   border-bottom: 2px solid ${({ theme }) => changeAlpha(theme.lightgrey, 0.5)};
 
+  @media (max-width: 500px) {
+    margin-bottom: 4rem;
+  }
+
   &:hover {
-    border-bottom: ${props => `2px solid ${props.theme.grey}`};
+    border-bottom: ${(props) => `2px solid ${props.theme.grey}`};
   }
 `;
 
@@ -40,7 +50,7 @@ const SUGGESTED_ITEMS = gql`
   }
 `;
 
-const SuggestedItems = props => {
+const SuggestedItems = (props) => {
   return (
     <Query query={SUGGESTED_ITEMS} variables={{ id_not: props.id }}>
       {({ data }) => {
@@ -48,13 +58,17 @@ const SuggestedItems = props => {
           <React.Fragment>
             <SectionTitle>Other Fine Products:</SectionTitle>
             <SuggestedItemsBar>
-              {data.items.map(item => (
+              {data.items.map((item) => (
                 <Link
                   href={{ pathname: "/item", query: { id: item.id } }}
                   key={item.id}
                 >
                   <SuggestedItem>
-                    <SuggestedItemImage src={item.image} />
+                    <FeaturedImageDynamic
+                      imageUrl={item.image}
+                      alt={item.title}
+                      sizes="200px"
+                    />
                     <p>{item.title}</p>
                   </SuggestedItem>
                 </Link>

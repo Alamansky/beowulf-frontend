@@ -11,14 +11,21 @@ const SickButton = styled.button`
   color: ${(props) => props.theme.offWhite};
   border-radius: 0;
   text-transform: uppercase;
-  font-size: 2.5rem;
+  /* font-size: 2.5rem; */
   padding: 0.8rem 1.5rem;
   margin-right: 1rem;
   display: inline-block;
   transition: all 0.2s;
 
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
+  font-size: 2.5rem;
+  /* font-weight: 600; */
+  padding: 0.5rem 1.2rem;
+
+  /*  @media (min-width: 768px) {
+    font-size: 2.5rem;
+  } */
+
+  @media (max-width: 1024px) {
   }
   &[disabled] {
     opacity: 0.5;

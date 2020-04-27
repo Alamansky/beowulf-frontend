@@ -44,6 +44,12 @@ const AboutText = styled.div`
     opacity: 0.95;
   }
 
+  @media (max-width: 768px) {
+    line-height: 2;
+    padding: 4rem 4rem;
+    outline: none;
+  }
+
   h2 {
     text-align: center;
     font-size: 7rem;

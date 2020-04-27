@@ -44,9 +44,9 @@ const Form = styled.form`
     width: auto;
     background: red;
     color: white;
-    font-size: 2rem;
-    font-weight: 600;
-    padding: 0.5rem 1.2rem;
+    /* font-size: 2rem; */
+    /* font-weight: 600; */
+    /* padding: 0.5rem 1.2rem; */
   }
   fieldset {
     min-height: 90%;

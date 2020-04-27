@@ -18,7 +18,15 @@ const HeroImage = styled.div`
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background-image: ${(props) => `url(${props.image})`};
+  /*   background: linear-gradient(
+    179deg,
+    rgb(240, 236, 231) 0%,
+    rgb(249, 244, 239) 40%,
+    rgb(121, 125, 121) 57%,
+    rgb(55, 60, 67) 60%,
+    rgb(27, 30, 37) 100%
+  ); */
+  background-image: ${(props) => `url(${props.image}), ${props.gradient}`};
   background-repeat: no-repeat;
   background-size: cover;
 `;
@@ -56,6 +64,14 @@ export default class Hero extends Component {
   };
 
   render() {
+    const gradient = `linear-gradient(
+      179deg,
+      rgb(240, 236, 231) 0%,
+      rgb(249, 244, 239) 40%,
+      rgb(121, 125, 121) 57%,
+      rgb(55, 60, 67) 60%,
+      rgb(27, 30, 37) 100%
+    )`;
     return (
       <HeroSpacer>
         <HeroImage
@@ -63,6 +79,7 @@ export default class Hero extends Component {
             url: env.heroImage,
             screenWidth: this.state.width,
           })}
+          gradient={gradient}
         >
           <Center>
             <HeroText
