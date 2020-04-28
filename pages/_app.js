@@ -20,7 +20,10 @@ class MyApp extends App {
     const { Component, apollo, pageProps } = this.props;
     return (
       <ApolloProvider client={apollo}>
-        <Page page={this.props.router.pathname}>
+        <Page
+          page={this.props.router.pathname}
+          smooth={this.props.router.pathname == "/"}
+        >
           <Component {...pageProps} />
         </Page>
       </ApolloProvider>

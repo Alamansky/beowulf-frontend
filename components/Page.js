@@ -57,6 +57,7 @@ const GlobalStyle = createGlobalStyle`
     html {
         box-sizing: border-box;
         font-size: 10px;
+        scroll-behavior: ${(props) => (props.smooth ? "smooth" : "none")};
     }
     *, *:before, *:after {
         box-sizing: inherit;
@@ -92,7 +93,7 @@ export default class Page extends Component {
     const fullWidthPages = ["/", "/orders"];
     return (
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
+        <GlobalStyle smooth={this.props.smooth} />
         <StyledPage>
           <Meta></Meta>
           <Header></Header>

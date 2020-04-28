@@ -10,6 +10,7 @@ import User, { CURRENT_USER_QUERY } from "./User";
 import gql from "graphql-tag";
 import { createDecipher } from "crypto";
 import { TOGGLE_CART_MUTATION } from "./Cart";
+import scrollToTop from "../lib/scrollToTop";
 
 const CREATE_ORDER_MUTATION = gql`
   mutation createOrder(
@@ -59,7 +60,7 @@ class TakeMyMoney extends React.Component {
     Router.push({
       pathname: "/order",
       query: { id: order.data.createOrder.id },
-    });
+    }).then(() => scrollToTop());
   };
   render() {
     return (
