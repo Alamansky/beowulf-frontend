@@ -120,6 +120,7 @@ export default class ContactForm extends Component {
                       liftState={this.liftState}
                       required={true}
                       title={"email"}
+                      type={"email"}
                     />
                     <TextAreaInput
                       liftState={this.liftState}

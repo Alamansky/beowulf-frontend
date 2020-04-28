@@ -58,6 +58,7 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         font-size: 10px;
         scroll-behavior: ${(props) => (props.smooth ? "smooth" : "none")};
+        overflow-x: hidden;
     }
     *, *:before, *:after {
         box-sizing: inherit;
