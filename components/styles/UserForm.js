@@ -46,7 +46,8 @@ const Form = styled.form`
   select {
     width: 100%;
     padding: 0.5rem;
-    font-size: 1.5rem;
+    /* font-size must be at least 16px to prevent zoom behavior on iOS devices*/
+    font-size: 16px !important;
     border: 1px solid black;
     background: rgba(255, 255, 255, 0.7);
     &:focus {

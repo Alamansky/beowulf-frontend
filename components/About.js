@@ -25,6 +25,13 @@ const AboutSection = styled.section`
   .hack {
     position: absolute;
     top: -200px;
+
+    @media (max-width: 768px) {
+      top: -110px;
+    }
+    @media (max-width: 700px) {
+      top: 0px;
+    }
   }
 `;
 
