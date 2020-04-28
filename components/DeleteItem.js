@@ -5,6 +5,7 @@ import { ALL_ITEMS_QUERY } from "./Items";
 import SickButton from "./styles/SickButton";
 import { theme } from "./Page";
 import Router from "next/router";
+import scrollToTop from "../lib/scrollToTop";
 
 const DELETE_ITEM_MUTATION = gql`
   mutation DELETE_ITEM_MUTATION($id: ID!) {
@@ -42,7 +43,7 @@ export default class DeleteItem extends Component {
                 deleteItem().catch((err) => alert(err.message));
                 Router.push({
                   pathname: "/shop",
-                });
+                }).then(() => scrollToTop());
               }
             }}
           >

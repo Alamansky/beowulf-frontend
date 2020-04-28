@@ -11,6 +11,7 @@ import { theme } from "./Page";
 import UploadToCloudinary from "./UploadToCloudinary";
 import TextInput from "./TextInput";
 import TextAreaInput from "./TextAreaInput";
+import scrollToTop from "../lib/scrollToTop";
 
 const CREATE_BLOGPOST = gql`
   mutation CREATE_BLOGPOST(
@@ -53,7 +54,7 @@ export default class CreateBlogPost extends Component {
     Router.push({
       pathname: "/post",
       query: { id: res.data.createBlogPost.id },
-    });
+    }).then(() => scrollToTop());
   };
 
   render() {

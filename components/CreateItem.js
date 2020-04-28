@@ -16,6 +16,7 @@ import UploadToCloudinary from "./UploadToCloudinary";
 import TextInput from "./TextInput";
 import TextAreaInput from "./TextAreaInput";
 import { ALL_ITEMS_QUERY } from "./Items";
+import scrollToTop from "../lib/scrollToTop";
 
 const CREATE_ITEM_MUTATION = gql`
   mutation CREATE_ITEM_MUTATION(
@@ -74,7 +75,7 @@ class createItem extends Component {
                   Router.push({
                     pathname: "/item",
                     query: { id: res.data.createItem.id },
-                  });
+                  }).then(() => scrollToTop());
                 }}
               >
                 <Error error={error} />

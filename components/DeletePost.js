@@ -5,6 +5,7 @@ import SickButton from "./styles/SickButton";
 import { theme } from "./Page";
 import { BLOGPOSTS } from "./BlogPosts";
 import Router from "next/router";
+import scrollToTop from "../lib/scrollToTop";
 
 const DELETE_POST_MUTATION = gql`
   mutation DELETE_POST_MUTATION($id: ID!) {
@@ -21,7 +22,7 @@ export default class DeleteBlogPost extends Component {
     const data = cache.readQuery({ query: BLOGPOSTS });
     // 2. Filter the deleted item out of the page
     data.blogPosts = data.blogPosts.filter(
-      blogPost => blogPost.id !== payload.data.deleteBlogPost.id
+      (blogPost) => blogPost.id !== payload.data.deleteBlogPost.id
     );
     // 3. Put items back in cache
     cache.writeQuery({ query: BLOGPOSTS, data: data });
@@ -40,10 +41,10 @@ export default class DeleteBlogPost extends Component {
             style={{ cursor: "pointer" }}
             onClick={() => {
               if (confirm("Are you sure you want to delete this blog post?")) {
-                deleteBlogPost().catch(err => alert(err.message));
+                deleteBlogPost().catch((err) => alert(err.message));
                 Router.push({
-                  pathname: "/blog"
-                });
+                  pathname: "/blog",
+                }).then(() => scrollToTop());
               }
             }}
           >

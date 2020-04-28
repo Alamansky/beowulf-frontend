@@ -6,6 +6,7 @@ import gql from "graphql-tag";
 import debounce from "lodash.debounce";
 import { DropDown, DropDownItem, SearchStyles } from "./styles/DropDown";
 import FeaturedImageDynamic from "./FeaturedImageDynamic";
+import scrollToTop from "../lib/scrollToTop";
 
 const SEARCH_ITEMS_QUERY = gql`
   query SEARCH_IEMS_QUERY($searchTerm: String!) {
@@ -22,7 +23,9 @@ const SEARCH_ITEMS_QUERY = gql`
 `;
 
 function routeToItem(item) {
-  Router.push({ pathname: "/item", query: { id: item.id } });
+  Router.push({ pathname: "/item", query: { id: item.id } }).then(() =>
+    scrollToTop()
+  );
 }
 
 class AutoComplete extends React.Component {
