@@ -18,7 +18,7 @@ const AccordianBox = styled.div`
   }
 `;
 
-export default class SingleAccordion extends Component {
+export default class SingleAccordionFunctionalChild extends Component {
   state = {
     open: false,
     count: 0,
@@ -53,11 +53,11 @@ export default class SingleAccordion extends Component {
         }
         open={this.state.open}
       >
-        {singleUse && this.state.count >= 1 ? null : (
-          <AccordionButton onClick={this.handleButtonClick}>
+        {singleUse && this.state.count >= 1 ? null :
+          (<AccordionButton onClick={this.handleButtonClick}>
             {this.state.open ? buttonText[1] : buttonText[0]}
-          </AccordionButton>
-        )}
+          </AccordionButton>)
+        }
         {this.state.open && this.props.children}
       </AccordianBox>
     );
