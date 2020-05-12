@@ -1,7 +1,7 @@
 import UserForm from "./styles/UserForm";
 import TextArea from "./styles/TextArea";
 import SickButton from "./styles/SickButton";
-import SingleAccordion from "./SingleAccordion";
+import SingleAccordionFunctionalChild from "./SingleAccordionFunctionalChild";
 import BannerMessage from "./BannerMessage";
 import { Mutation } from "react-apollo";
 import gql from "graphql-tag";
@@ -56,7 +56,7 @@ export default class ContactForm extends Component {
     email: "",
     message: "",
     messageSent: false,
-    _window: false,
+    _window: false
   };
 
   componentDidMount() {
@@ -83,6 +83,15 @@ export default class ContactForm extends Component {
     }
   };
 
+  closeAccordion = () => {
+    if (this.state._window) {
+      window.setTimeout(() => {
+        let contact = document.getElementById("contact");
+        contact.style.minHeight = "0vh";
+      }, 200);
+    }
+  }
+
   render() {
     let { _window, messageSent, ...messageState } = this.state;
     return (
@@ -90,8 +99,9 @@ export default class ContactForm extends Component {
         {(createMessage, { error, loading }) => {
           return (
             <ContactSection id="contact">
-              <SectionTitle>Any Questions?</SectionTitle>
-              <SingleAccordion
+              <SectionTitle>{this.state.messageSent ? 'Thanks, We\'ll Be in Touch!' : 'Any Questions?'}</SectionTitle>
+              <SingleAccordionFunctionalChild
+                key={this.state.messageSent}
                 singleUse={true}
                 button={SickButton}
                 buttonActions={this.scrollToBottom}
@@ -106,6 +116,7 @@ export default class ContactForm extends Component {
               >
                 <UserForm
                   onSubmit={async (e) => {
+                    this.closeAccordion();
                     e.preventDefault();
                     const res = await createMessage();
                     this.setState({
@@ -131,13 +142,13 @@ export default class ContactForm extends Component {
                   <SickButton type="submit" disabled={loading}>
                     Submit
                   </SickButton>
-                  <MessageSent show={this.state.messageSent}>
+                  {/* <MessageSent show={this.state.messageSent}>
                     <BannerMessage>
                       <h3>Message Sent</h3>
                     </BannerMessage>
-                  </MessageSent>
+                  </MessageSent> */}
                 </UserForm>
-              </SingleAccordion>
+              </SingleAccordionFunctionalChild>
             </ContactSection>
           );
         }}
